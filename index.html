@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>HTML + CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="desk-container">
+      <img src="table1.svg" class="desk-upper" id="deskUpper" />
+      <img src="table2.svg" class="desk-upper" id="deskLower" />
+      <div class="buttons">
+        <button onclick="moveDesk('up')">Вверх</button>
+        <button onclick="moveDesk('down')">Вниз</button>
+      </div>
+    </div>
+    <div class="description-container">
+      <h1>Эргономика —
+        ключ к успеху современного человека
+      </h1>
+      <p>Cтильная столешница , выполненной из экологически безопасного материала (ДСП), и усиленной стальной рамы
+        не составит труда разместить на поверхности инновационного стола большое количество крупногабаритной техники:
+        стол выдерживает нагрузку до 80 кг.
+      </p>
+      <p>Также столешница, обладающая меламиновым покрытием, хорошо переносит механические воздействия (царапины
+        или удары), при контакте с водой не разрушается, устойчиво переносит бытовые химические вещества и не выгорает
+        под воздействием ультрафиолета.</p>
+    </div>
+  </div>
+
+  <script>
+    let currentPosition = 0;
+    const step = 20;
+    let maxPosition = 60;
+    const minPosition = 0;
+
+    function adjustMaxPosition() {
+      if (window.innerWidth <= 768) {
+        maxPosition = 20;
+      } else {
+        maxPosition = 60;
+      }
+    }
+
+    adjustMaxPosition();
+
+    window.addEventListener('resize', adjustMaxPosition);
+
+    function moveDesk(direction) {
+      const upper = document.getElementById("deskUpper");
+      const lower = document.getElementById("deskLower");
+
+      if (direction === "up" && currentPosition < maxPosition) {
+        currentPosition += step;
+      } else if (direction === "down" && currentPosition > minPosition) {
+        currentPosition -= step;
+      }
+
+      if (maxPosition < 60) {
+        upper.style.transform = `translateY(-${currentPosition}px)  scale(1.3)`;
+      } else {
+        upper.style.transform = `translateY(-${currentPosition}px)  scale(1.5)`;
+      }
+    }
+  </script>
+</body>
+
+</html>

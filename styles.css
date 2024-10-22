@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #F3F3F3;
+}
+
+.desk-container {
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  overflow: hidden;
+}
+
+.desk-container img {
+  transform: scale(1.5);
+}
+
+.desk-upper {
+  position: absolute;
+  display: block;
+  top: 100;
+  left: 0;
+  width: 100%;
+  transition: transform 2s ease;
+  z-index: 0;
+}
+
+.desk-lower {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  transition: transform 2s ease;
+}
+
+.buttons {
+  display: flex;
+  gap: 74px;
+  margin-top: 16%;
+  z-index: 1;
+}
+
+button {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #a6ffff;
+  border: none;
+}
+
+
+.description-container {
+  flex: 1;
+  width: 50%;
+  padding-top: 20px;
+  font-family: Montserrat;
+}
+
+h1 {
+  max-width: 300px;
+  font-weight: 400;
+  color: #0B64FE;
+}
+
+p {
+  margin-top: 30px;
+  max-width: 450px;
+  line-height: 37px;
+  font-weight: 400;
+}
+
+
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .desk-container,
+  .description-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .desk-container {
+    min-height: 300px;
+    position: absolute;
+    top: 450px;
+  }
+
+  .desk-container img {
+    transform: scale(1.3);
+  }
+
+  .buttons {
+    display: flex;
+    gap: 24px;
+    margin-top: 30px;
+    z-index: 1;
+  }
+
+  button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #a6ffff;
+    border: none;
+  }
+
+  .description-container {
+  }
+
+  h1 {
+    max-width: 300px;
+    font-weight: 900;
+    color: #0B64FE;
+    font-size: 34px;
+    padding: 0 0 0 10px;
+  }
+  
+  p {
+    padding: 0 10px 0 10px;
+    margin-top: 30px;
+    max-width: 450px;
+    line-height: 16px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  p:last-child {
+    margin-top: 330px;
+    margin-bottom: 10px;
+  }
+}
